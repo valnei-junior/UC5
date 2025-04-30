@@ -18,13 +18,13 @@ class AlunoView {
     );
     console.table(aluno);
   }
-  static async editarAluno(nome, email, matricula, telefone, cod_turma) {
+  static async editarAluno(nome, email, matricula, telefone, cod_curso) {
     const aluno = await AlunoController.editar(
       nome,
       email,
       matricula,
       telefone,
-      cod_turma
+      cod_curso
     ); 
     console.table(aluno);
   }

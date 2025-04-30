@@ -12,10 +12,10 @@ class CursoView {
     );
     console.table(curso);
   }
-  static async editarCurso(nome,  cod_turma) {
+  static async editarCurso(nome_curso,  cod_curso) {
     const curso = await CursoController.editar(
-      nome,
-      cod_turma
+      nome_curso,
+      cod_curso
     ); 
     console.table(curso);
   }
@@ -23,17 +23,17 @@ class CursoView {
     const curso = await CursoController.listarTodos();
     console.table(curso);
   }
-  static async listarPorEmail(cod_turma) {
-    const curso = await CursoController.listarPorEmail(cod_turma);
+  static async listarPorEmail(cod_curso) {
+    const curso = await CursoController.listarPorEmail(cod_curso);
     console.table(curso);
   }
   static async deletarTodos() {
     await CursoController.deletarTodos();
   }
-  static async deletarCurso(cod_turma) {
-    await CursoController.deletarCurso(cod_turma);
+  static async deletarCurso(cod_curso) {
+    await CursoController.deletarCurso(cod_curso);
   }
-  static async totaCurso() {
+  static async totalCurso() {
     const total = await CursoController.totalCursos();
     console.table(total);
   }

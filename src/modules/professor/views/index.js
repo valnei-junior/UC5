@@ -18,13 +18,13 @@ class ProfessorView {
     );
     console.table(professor);
   }
-  static async editarProfessor(nome,  matricula, cod_turma) {
+  static async editarProfessor(nome,  matricula, cod_curso) {
     const professor = await ProfessorController.editar(
       nome,
      
       matricula,
      
-      cod_turma
+      cod_curso
     ); 
     console.table(professor);
   }

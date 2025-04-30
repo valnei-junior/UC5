@@ -1,24 +1,24 @@
 import ProfessorModel from "../models/index.js"; 
 
 class ProfessorController{
-    static async criar(nome,  matricula, cod_turma){
+    static async criar(nome,  matricula, cod_curso){
         try {
-            if(!nome ||  !matricula || !cod_turma){
+            if(!nome ||  !matricula || !cod_curso){
                 return console.error('Todos os campos devem ser preenchidos!')
             }
-            const professor = await ProfessorModel.criar(nome,  matricula, cod_turma)
+            const professor = await ProfessorModel.criar(nome,  matricula, cod_curso)
             console.log('Professor criado com sucesso!')
             return professor
         } catch (error) {
             console.log('Erro ao criar Professor:', error.message)
         }
     }
-    static async editar(nome,  matricula,  cod_turma){
+    static async editar(nome,  matricula,  cod_curso){
         try {
-            if(!nome ||  !matricula || !cod_turma){
+            if(!nome ||  !matricula || !cod_curso){
                 return console.error('Todos os campos devem ser preenchidos!')
             }
-            const professor = await ProfessorModel.atualizarProfessor(nome,  matricula,  cod_turma)
+            const professor = await ProfessorModel.atualizarProfessor(nome,  matricula,  cod_curso)
             if(professor.length === 0){
                 return console.error('Professor não encontrado!')
             }
@@ -48,9 +48,9 @@ class ProfessorController{
             console.log('Erro ao excluir todos os Professor:', error.message)
         }
     }
-    static async listarTodos(){
+    static async listarTodos(matricula){
         try {
-            const professor = await ProfessorModel.listarTodos()
+            const professor = await ProfessorModel.listarTodos(matricula)
             if(professor.length === 0){
                 return console.log('Nenhum usuario a ser exibido!')
             }
@@ -72,9 +72,9 @@ class ProfessorController{
             console.log('Erro ao listar todos os Professor:', error.message)
         }
     }
-    static async totalProfessor(){
+    static async totalProfessor(matricula){
         try {
-            const total = await ProfessorModel.totalProfessor()
+            const total = await ProfessorModel.totalProfessor(matricula)
             if(total.length === 0){
                 return console.error('Não há Professores na contagem!')
             }
@@ -87,4 +87,4 @@ class ProfessorController{
 
 }
 
-export default ProfessorController
+export default ProfessorController;

@@ -1,10 +1,10 @@
 import client from '../../../config/database.js'
 
 class ProfessorModel{
-    static async criar(nome,  matricula,  cod_turma){
-            const dados = [nome,  matricula,  cod_turma]
-            const consulta = `insert into professor(nome,  matricula, cod_turma)
-            values ($1, $2, $3, ) returning *;`
+    static async criar(nome,  matricula,  cod_curso){
+            const dados = [nome,  matricula,  cod_curso]
+            const consulta = `insert into professor(nome,  matricula, cod_curso)
+            values ($1, $2, $3) returning *;`
             const resultado = await client.query(consulta, dados);
             return resultado.rows;
     }
@@ -19,8 +19,8 @@ class ProfessorModel{
         const resultado = await client.query(consulta, dados)
         return resultado.rows;
     }
-    static async atualizarProfessor(nome,  matricula,  cod_turma){
-        const dados = [nome, matricula, cod_turma]
+    static async atualizarProfessor(nome,  matricula,  cod_curso){
+        const dados = [nome, matricula, cod_curso]
         const consulta = `update aluno set nome = $1, cod_turma = $3
         where matricula = $2 returning *`
         const resultado = await client.query(consulta, dados)
